@@ -1,4 +1,4 @@
-package leetcode每日一题._03_21;
+package c._03_21;
 
 import java.util.ArrayList;
 import java.util.HashSet;

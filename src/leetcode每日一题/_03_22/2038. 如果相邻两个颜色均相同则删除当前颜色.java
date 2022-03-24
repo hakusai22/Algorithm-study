@@ -1,3 +1,5 @@
+package leetcode每日一题._03_22;
+
 class Solution {
     public boolean winnerOfGame(String colors) {
         int s = 0, n = colors.length();
