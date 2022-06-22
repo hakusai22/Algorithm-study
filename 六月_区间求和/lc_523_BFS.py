@@ -8,21 +8,21 @@ from typing import Optional, Deque
 # https://leetcode.cn/problems/find-bottom-left-tree-value/
 
 
-class Solution:
-    class TreeNode:
-        def __init__(self, val=0, left=None, right=None):
-            self.val = val
-            self.left = left
-            self.right = right
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-    def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
-        queue, ans = Deque([root]), None
-        while queue:
-            ans = queue[0].val
-            for _ in range(len(queue)):
-                node = queue.popleft()
-                if node.left:
-                    queue.append(node.left)
-                if node.right:
-                    queue.append(node.right)
-        return ans
+
+def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
+    queue, ans = Deque([root]), None
+    while queue:
+        ans = queue[0].val
+        for _ in range(len(queue)):
+            node = queue.popleft()
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+    return ans
