@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # @Author  : hakusai
 # @Time    : 2022/6/22 20:05
-from typing import Optional, Deque
 
 
 # 用BFS按层遍历，答案是最后一层的第一个节点的值
 # https://leetcode.cn/problems/find-bottom-left-tree-value/
+from typing import Deque, Optional
 
 
 class TreeNode:
