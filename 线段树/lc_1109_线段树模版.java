@@ -1,4 +1,4 @@
-class Solution {
+class lc_1109_线段树模版 {
     class Node {
         int l, r, v, add;
         Node(int _l, int _r) {

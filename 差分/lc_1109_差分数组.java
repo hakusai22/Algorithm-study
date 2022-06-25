@@ -1,4 +1,4 @@
-class Solution {
+class lc_1109_差分数组 {
     public int[] corpFlightBookings(int[][] bs, int n) {
         int[] c = new int[n + 1];
         for (int[] bo : bs) {

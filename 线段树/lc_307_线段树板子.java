@@ -1,4 +1,4 @@
-class NumArray {
+class lc_307_线段树板子 {
     Node[] tr;
     class Node {
         int l, r, v;
@@ -55,7 +55,7 @@ class NumArray {
 
 
     int[] nums;
-    public NumArray(int[] _nums) {
+    public lc_307_线段树板子(int[] _nums) {
         nums = _nums;
         int n = nums.length;
         tr = new Node[n * 4];
