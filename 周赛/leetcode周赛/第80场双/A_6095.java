@@ -1,4 +1,5 @@
- public boolean strongPasswordCheckerII(String password) {
+class A_6095 {
+  public boolean strongPasswordCheckerII(String password) {
     boolean a1 = false;
     boolean a2 = false;
     boolean a3 = false;
@@ -27,10 +28,11 @@
         a6 = true;
         return false;
       }
-      c1=c;
+      c1 = c;
     }
     if (a1 && a2 && a3 && a4) {
       return true;
     }
     return false;
   }
+}

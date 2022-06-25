@@ -1,9 +1,5 @@
-package com.xizi.lc_0611;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -12,7 +8,7 @@ import java.util.Set;
  * Author: yinpeng@bongmi.com
  */
 
-public class C {
+public class C_6097 {
   public static boolean matchReplacement(String s, String sub,
       char[][] mappings) {
     HashMap<Character, Set<Character>> map = new HashMap<>();

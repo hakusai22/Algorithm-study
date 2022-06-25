@@ -1,4 +1,4 @@
-class Solution {
+class D_6098 {
   public long countSubarrays(int[] nums, long k) {
     int n = nums.length;
     int r = 0;

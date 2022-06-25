@@ -1,4 +1,6 @@
-class Solution {
+import java.util.Arrays;
+
+class B_6096 {
   public int[] successfulPairs(int[] spells, int[] potions, long success) {
     int[] res = new int[spells.length];
     Arrays.sort(potions);
