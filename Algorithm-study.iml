@@ -9,6 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$/差分" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/树状数组" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/线段树" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/七月_图论" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
