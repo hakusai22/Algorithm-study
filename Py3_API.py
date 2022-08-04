@@ -2,8 +2,6 @@
 # @Author  : hakusai
 # @Time    : 2022/6/25 17:35
 
-from py_itertools import *
-
 
 def multiplier_func(a, b):
     return a * b
