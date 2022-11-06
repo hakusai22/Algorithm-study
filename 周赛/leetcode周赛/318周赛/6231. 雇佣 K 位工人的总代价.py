@@ -17,6 +17,12 @@ uniform(x, y), pow(x, y)# 随机生成下一个实数，它在[x,y]范围内/ x*
 '''
 
 '''
+字典推倒式 {key: len(key) for key in list}
+列表推倒式 [i for i in range(100) if i % 3 == 0] 可切片,可索引,可重复
+集合推倒式 {i ** 2 for i in (1, 2, 3)}  不可索引,不可切片,不可重复元素
+'''
+
+'''
 1.heapify(list):将序列list改变成heap结构
 2.heappush(heap, item):向序列heap中插入一个item元素
 3.heappop(heap):pop出heap堆中的最小值

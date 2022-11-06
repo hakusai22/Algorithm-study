@@ -16,6 +16,12 @@ eval() 字符串转换成列表、元组或者字典/
 uniform(x, y), pow(x, y)# 随机生成下一个实数，它在[x,y]范围内/ x**y 运算后的值。
 '''
 
+'''
+字典推倒式 {key: len(key) for key in list}
+列表推倒式 [i for i in range(100) if i % 3 == 0] 可切片,可索引,可重复
+集合推倒式 {i ** 2 for i in (1, 2, 3)}  不可索引,不可切片,不可重复元素
+'''
+
 
 # -*- coding: utf-8 -*-
 # @Author  : hakusai
