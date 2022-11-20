@@ -111,15 +111,13 @@ class TreeNode:
 
 # -*- coding: utf-8 -*-
 # @Author  : zero
-# @Time    : 2022/11/20 21:52
-
+# @Time    : 2022/11/20 22:09
 
 if __name__ == '__main__':
     N = 100010
     p = [0] * N
+    size = [0] * N
 
-    # find函数，用于返回x的祖宗节点
-    # 同时压缩往回搜寻节点的路径
     def find(x):
         if p[x] != x:
             p[x] = find(p[x])
@@ -127,21 +125,27 @@ if __name__ == '__main__':
 
     n, m = map(int, input().split())
 
-    # 初始化每一个集合，将其集合名字命名为自己的名字
     for i in range(1, n + 1):
         p[i] = i
+        size[i] = 1
 
-    # 循环遍历所有输入并进行合并和查询操作
     while m:
-        row = LI()
-        if row[0] == 'M':
-            # 合并的时候将a的根节点插到b的根节点上
-            p[find(int(row[1]))] = find(int(row[2]))
-        else:
-            if find(int(row[1])) == find(int(row[2])):
-                print('Yes')
-            else:
-                print('No')
         m -= 1
+        li = input().split()
+        if li[0] == 'C':
+            a, b = int(li[1]), int(li[2])
+            if find(a) == find(b):
+                continue
+            size[find(b)] += size[find(a)]
+            p[find(a)] = find(b)
+        elif li[0] == 'Q1':
+            a, b = int(li[1]), int(li[2])
+            if find(a) == find(b):
+                print("Yes")
+            else:
+                print("No")
+        else:
+            a = int(li[1])
+            print(size[find(a)])
 
-# https://www.acwing.com/problem/content/838/
+# https://www.acwing.com/problem/content/839/
