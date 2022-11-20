@@ -13,7 +13,7 @@ if __name__ == '__main__':
     print(os.environ)  # 环境变量
 
     print(os.path.isfile("/Users/yinpeng/PythonWorkSpace/Algorithm-study/py标准库"))  # 检测路径是否为文件。
-    print(os.path.isdir("/Users/yinpeng/PythonWorkSpace/Algorithm-study/周赛"))  # 检测路径是否为文件夹。
+    print(os.path.isdir("/"))  # 检测路径是否为文件夹。
     print(os.path.exists("/Users/yinpeng/PythonWorkSpace/Algorithm-study/py标准库"))  # 检测路径是否存在。
     print(os.path.isabs("/Users/yinpeng/PythonWorkSpace/Algorithm-study/py标准库"))  # 检测路径是否为绝对路径。
 

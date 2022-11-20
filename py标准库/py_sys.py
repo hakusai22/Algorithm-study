@@ -14,9 +14,9 @@ if __name__ == '__main__':
     # / usr / bin / python3 / Users / yinpeng / PythonWorkSpace / Algorithm - study / py标准库 / py_sys.py
     # ['/Users/yinpeng/PythonWorkSpace/Algorithm-study/py标准库/py_sys.py']
     # ['/Users/yinpeng/PythonWorkSpace/Algorithm-study/py标准库', '/Users/yinpeng/PythonWorkSpace/Algorithm-study',
-    #  '/Users/yinpeng/PythonWorkSpace/Algorithm-study/周赛/leetcode周赛/第298场',
+    #  '/Users/yinpeng/PythonWorkSpace/Algorithm-study/leetcode周赛/leetcode周赛/第298场',
     #  '/Users/yinpeng/PythonWorkSpace/Algorithm-study/六月_区间求和', '/Users/yinpeng/PythonWorkSpace/Algorithm-study/src',
-    #  '/Users/yinpeng/PythonWorkSpace/Algorithm-study/周赛',
+    #  '/Users/yinpeng/PythonWorkSpace/Algorithm-study/leetcode周赛',
     #  '/Applications/PyCharm.app/Contents/plugins/python/helpers/pycharm_display',
     #  '/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python38.zip',
     #  '/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8',
