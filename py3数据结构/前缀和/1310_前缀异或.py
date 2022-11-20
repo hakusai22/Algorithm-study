@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author  : hakusai
 # @Time    : 2022/6/13 21:05
-from Py流式.py_itertools import accumulate
+from py3基础.Py流式.py_itertools import accumulate
 from operator import xor
 from typing import List
 

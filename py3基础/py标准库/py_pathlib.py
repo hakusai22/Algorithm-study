@@ -5,7 +5,7 @@ import pathlib
 
 if __name__ == '__main__':
     # Python 3提供了一个新的模块pathlib，提供了Path类型来进行更方便的路径操作：
-    p = pathlib.Path('.')
+    p = pathlib.Path('')
 
     print(p)
     # 获得当前目录下所有的文件：

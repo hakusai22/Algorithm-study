@@ -3,7 +3,7 @@
 # @Time    : 2022/8/10 22:56
 import sys
 
-from Py速成.面试.User2 import User2
+from py3基础.Py速成.面试.User2 import User2
 
 
 class User1:
