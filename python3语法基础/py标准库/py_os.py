@@ -12,9 +12,9 @@ if __name__ == '__main__':
     print(os.pathsep)  # 当前操作系统的环境变量PATH中的分隔符
     print(os.environ)  # 环境变量
 
-    print(os.path.isfile("/py3基础/py标准库"))  # 检测路径是否为文件。
+    print(os.path.isfile("/python3语法基础/py标准库"))  # 检测路径是否为文件。
     print(os.path.isdir("/"))  # 检测路径是否为文件夹。
-    print(os.path.exists("/py3基础/py标准库"))  # 检测路径是否存在。
-    print(os.path.isabs("/py3基础/py标准库"))  # 检测路径是否为绝对路径。
+    print(os.path.exists("/python3语法基础/py标准库"))  # 检测路径是否存在。
+    print(os.path.isabs("/python3语法基础/py标准库"))  # 检测路径是否为绝对路径。
 
     print(os.path.join("test", "a.txt"))  # 使用系统分隔符，将各个部分合并为一个路径

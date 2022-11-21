@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Author  : hakusai
 # @Time    : 2022/7/4 08:32
-from py3基础.Py流式.py_itertools import pairwise
+from python3语法基础.Py流式.py_itertools import pairwise
 from math import inf
 from typing import List
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author  : hakusai
 # @Time    : 2022/6/29 08:19
-from py3基础.Py流式.py_itertools import accumulate
+from python3语法基础.Py流式.py_itertools import accumulate
 from typing import List
 
 # 这是一道区间覆盖题目。可以使用差分数组很容易地统计出每个点最终是多少座位。
