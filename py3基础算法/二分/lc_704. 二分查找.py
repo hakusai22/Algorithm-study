@@ -23,6 +23,30 @@ uniform(x, y), pow(x, y)# 随机生成下一个实数，它在[x,y]范围内/ x*
 集合推倒式 {i ** 2 for i in (1, 2, 3)}  不可索引,不可切片,不可重复元素
 '''
 
+def I():
+    return input()
+
+def II():
+    return int(input())
+
+def FI():
+    return float(input())
+
+def MII():
+    return map(int, input().split())
+
+def MFI():
+    return map(float, input().split())
+
+def LI():
+    return list(input().split())
+
+def LMII():
+    return list(map(int, input().split()))
+
+def LMFI():
+    return list(map(float, input().split()))
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -30,32 +54,24 @@ class TreeNode:
         self.left = left
         self.right = right
 
+# -*- coding: utf-8 -*-
+# @Author  : zero
+# @Time    : 2022/11/22 20:14
+# https://leetcode.cn/problems/binary-search/submissions/
+
+
+
 class Solution:
-    def closestNodes(self, root: Optional[TreeNode], q: List[int]) -> List[List[int]]:
-        a = []
-
-        def dfs(rt):
-            if rt is None:
-                return
-            dfs(rt.left)
-            a.append(rt.val)
-            dfs(rt.right)
-
-        dfs(root)
-        # print(a)
-        ans = []
-        for x in q:
-            # bisect_left()函数返回排序数组中值等于k的最左索引，如果没有，就返回插入后其索引 (在所有已存在值的左侧)
-            # bisect_right()函数返回排序数组中值等于k的最右索引 + 1，如果没有，就返回插入后其索引 (在所有已存在值的右侧)
-            # bisect()函数返回排序数组中值等于k的最右索引 + 1，如果没有，就返回插入后其索引 (在所有已存在值的右侧)
-            l = bisect_right(a, x)
-            r = bisect_left(a, x)
-            val = [-1, -1]
-            if l > 0:
-                val[0] = a[l - 1]
-            if r < len(a):
-                val[1] = a[r]
-            ans.append(val)
-        return ans
-
-
+    def search(self, nums: List[int], target: int) -> int:
+        # l, r = 0, len(nums) - 1
+        # while l < r:
+        #     mid = (l + r + 1) >> 1
+        #     if nums[mid] <= target:
+        #         l = mid
+        #     else:
+        #         r = mid - 1
+        # return -1 if nums[l] != target else l
+        index = bisect_left(nums, target)
+        if index >= len(nums):
+            return -1
+        return -1 if nums[index] != target else index

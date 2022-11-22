@@ -23,6 +23,30 @@ uniform(x, y), pow(x, y)# 随机生成下一个实数，它在[x,y]范围内/ x*
 集合推倒式 {i ** 2 for i in (1, 2, 3)}  不可索引,不可切片,不可重复元素
 '''
 
+def I():
+    return input()
+
+def II():
+    return int(input())
+
+def FI():
+    return float(input())
+
+def MII():
+    return map(int, input().split())
+
+def MFI():
+    return map(float, input().split())
+
+def LI():
+    return list(input().split())
+
+def LMII():
+    return list(map(int, input().split()))
+
+def LMFI():
+    return list(map(float, input().split()))
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -30,32 +54,41 @@ class TreeNode:
         self.left = left
         self.right = right
 
-class Solution:
-    def closestNodes(self, root: Optional[TreeNode], q: List[int]) -> List[List[int]]:
-        a = []
+# -*- coding: utf-8 -*-
+# @Author  : zero
+# @Time    : 2022/11/22 16:57
+# https://www.acwing.com/problem/content/791/
 
-        def dfs(rt):
-            if rt is None:
-                return
-            dfs(rt.left)
-            a.append(rt.val)
-            dfs(rt.right)
+if __name__ == '__main__':
+    n, q = MII()
+    arr = LMII()
+    while q > 0:
+        q -= 1
+        x = II()
 
-        dfs(root)
-        # print(a)
-        ans = []
-        for x in q:
-            # bisect_left()函数返回排序数组中值等于k的最左索引，如果没有，就返回插入后其索引 (在所有已存在值的左侧)
-            # bisect_right()函数返回排序数组中值等于k的最右索引 + 1，如果没有，就返回插入后其索引 (在所有已存在值的右侧)
-            # bisect()函数返回排序数组中值等于k的最右索引 + 1，如果没有，就返回插入后其索引 (在所有已存在值的右侧)
-            l = bisect_right(a, x)
-            r = bisect_left(a, x)
-            val = [-1, -1]
-            if l > 0:
-                val[0] = a[l - 1]
-            if r < len(a):
-                val[1] = a[r]
-            ans.append(val)
-        return ans
+        # 搜索出左端点的下标  (绿色区域的左边界值)
+        # 区间[l, r]被划分成 [l, mid] 和 [mid+1, r]时使用
+        # mid归于左边, r = mid, mid选择 不 +1
+        l, r = 0, n - 1
+        while l < r:
+            mid = (l + r) // 2
+            if arr[mid] >= x:
+                r = mid
+            else:
+                l = mid + 1
+        if arr[l] != x:
+            print("-1 -1")
+            continue
+        left = l
 
-
+        # 搜索出右端点的下标 (红色区域的右边界值)
+        # 区间[l, r]被划分成 [l, mid-1] 和 [mid, r]时使用
+        # mid归于右边, l = mid, mid选择 +1
+        l, r = 0, n - 1
+        while l < r:
+            mid = (l + r + 1) >> 1
+            if arr[mid] <= x:
+                l = mid
+            else:
+                r = mid - 1
+        print("{} {}".format(left, l))
