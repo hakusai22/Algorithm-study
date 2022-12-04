@@ -69,6 +69,9 @@ class ListNode:
 """
 因此可以用线段树来求解，将线段树的节点的值定义为所管理区间的区间和，
 这个区间和就表示此区间内有多少个时间单位被预定过了
+
+空间复杂度就是O(N)O
+线段树的一次操作的时间复杂度为O(logN)（即树高的常数倍复杂度）
 """
 class Node:
     def __init__(self, left=None, right=None, val=0, lazy=0):
