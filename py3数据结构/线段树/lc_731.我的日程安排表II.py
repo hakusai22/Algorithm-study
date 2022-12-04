@@ -172,7 +172,6 @@ class MySegTree:
             ans = max(ans, self.query(node.left, start, mid, left, right))
         if right > mid:
             ans = max(ans, self.query(node.right, mid + 1, end, left, right))
-
         return ans
 
 class MyCalendarTwo:
