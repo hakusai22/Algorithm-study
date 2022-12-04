@@ -70,9 +70,10 @@ class ListNode:
 因此可以用线段树来求解，将线段树的节点的值定义为所管理区间的区间和，
 这个区间和就表示此区间内有多少个时间单位被预定过了
 
-空间复杂度就是O(N)O
+空间复杂度就是O(N)
 线段树的一次操作的时间复杂度为O(logN)（即树高的常数倍复杂度）
 """
+
 class Node:
     def __init__(self, left=None, right=None, val=0, lazy=0):
         """
@@ -86,7 +87,7 @@ class Node:
         self.val = val
         self.lazy = lazy
 
-class MySegTree:
+class SegmentTree:
     def __init__(self, size):
         """
         size:   线段树的总大小（根节点管理的区间的长度）
@@ -95,28 +96,28 @@ class MySegTree:
         self.root = Node()
         return
 
-    def push_down(self, node, s, e):
+    def pushDown(self, node, start, end):
         """
         向下更新，并传递懒惰更新标志
         node:   当前节点
         s:      start，当前节点管理的左边界（含）
         e:      end，当前节点管理的右边界（含）
         """
-        mid = s + ((e - s) >> 1)
+        mid = start + end >> 1
         if node.left is None:
             node.left = Node()
         if node.right is None:
             node.right = Node()
         if node.lazy == 0:
             return
-        node.left.val += node.lazy * (mid - s + 1)
-        node.right.val += node.lazy * (e - mid)
+        node.left.val += node.lazy * (mid - start + 1)
+        node.right.val += node.lazy * (end - mid)
         node.left.lazy += node.lazy
         node.right.lazy += node.lazy
         node.lazy = 0
         return
 
-    def push_up(self, node):
+    def pushUp(self, node):
         """
         向上更新，要求node的两个子节点均已更新完
         node:   当前节点
@@ -124,34 +125,34 @@ class MySegTree:
         node.val = node.left.val + node.right.val
         return
 
-    def update(self, node, s, e, l, r, add):
+    def update(self, node, start, end, left, right, add):
         """
         更新闭区间[l, r]，给此区间内的每个值，都加上add
-        闭区间[l, r]和当前节点管理的区间[s, e]的交集一定是非空的
+        闭区间[l, r]和当前区间[start, end]的交集一定非空
         node:   当前节点
-        s:      start，当前节点管理的左边界（含）
-        e:      end，当前节点管理的右边界（含）
-        l:      left，要更改的区间的左边界
-        r:      right，要更改的区间的右边界
+        start，当前节点管理的左边界（含）
+        end，当前节点管理的右边界（含）
+        left，要更改的区间的左边界
+        right，要更改的区间的右边界
         add:    addition，增量
         """
-        if l <= s and e <= r:
-            node.val += add * (e - s + 1)
+        if left <= start and end <= right:
+            node.val += add * (end - start + 1)
             node.lazy += add
             return
 
-        self.push_down(node, s, e)
-        mid = s + ((e - s) >> 1)
+        self.pushDown(node, start, end)
+        mid = start + end >> 1
 
-        if l <= mid:
-            self.update(node.left, s, mid, l, r, add)
-        if r > mid:
-            self.update(node.right, mid + 1, e, l, r, add)
+        if left <= mid:
+            self.update(node.left, start, mid, left, right, add)
+        if right > mid:
+            self.update(node.right, mid + 1, end, left, right, add)
 
-        self.push_up(node)
+        self.pushUp(node)
         return
 
-    def query(self, node, s, e, l, r):
+    def query(self, node, start, end, left, right):
         """
         查询闭区间[l, r]的值
         闭区间[l, r]和当前区间[s, e]一定是有交集的
@@ -161,28 +162,33 @@ class MySegTree:
         l:      left，要更改的区间的左边界
         r:      right，要更改的区间的右边界
         """
-        if l <= s and e <= r:
+
+        # [start,end] 在[left,right]之间 直接返回该线段对应的数量
+        if left <= start and end <= right:
             return node.val
 
-        self.push_down(node, s, e)
-        mid = s + ((e - s) >> 1)
+        self.pushDown(node, start, end)
+        mid = start + end >> 1
 
         ans = 0
-        if l <= mid:
-            ans += self.query(node.left, s, mid, l, r)
-        if r > mid:
-            ans += self.query(node.right, mid + 1, e, l, r)
-
+        # 左节点查询 [start,mid] 搜索 [left,right]线段
+        if left <= mid:
+            ans += self.query(node.left, start, mid, left, right)
+        # 右节点查询 [mid+1,end] 搜索 [left,right]
+        if right > mid:
+            ans += self.query(node.right, mid + 1, end, left, right)
         return ans
 
 class MyCalendar:
 
     def __init__(self):
         self.size = 10 ** 9
-        self.seg_tree = MySegTree(size=self.size)
+        self.seg_tree = SegmentTree(size=self.size)
 
     def book(self, start: int, end: int) -> bool:
-        if self.seg_tree.query(self.seg_tree.root, 0, self.size, start, end - 1) != 0:
+        # 判断区间[start,end] 存在的size是不是>0
+        if self.seg_tree.query(self.seg_tree.root, 0, self.size, start, end - 1) > 0:
             return False
+        # 更新【start,end】区间size的数量
         self.seg_tree.update(self.seg_tree.root, 0, self.size, start, end - 1, 1)
         return True
