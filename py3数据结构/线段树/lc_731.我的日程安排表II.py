@@ -85,10 +85,6 @@ class Node:
         self.val = val
         self.lazy = lazy
 
-    def __repr__(self):
-        return f'<Node val: {self.val} lazy: {self.lazy} {self.left} {self.right}>'
-
-
 class MySegTree:
     def __init__(self, size):
         """
@@ -98,14 +94,14 @@ class MySegTree:
         self.root = Node()
         return
 
-    def push_down(self, node, s, e):
+    def pushDown(self, node, start, end):
         """
         向下更新，并传递懒惰更新标志
         node:   当前节点
         s:      start，当前节点管理的左边界（含）
         e:      end，当前节点管理的右边界（含）
         """
-        mid = s + ((e - s) >> 1)
+        mid = start + end >> 1
         if node.left is None:
             node.left = Node()
         if node.right is None:
@@ -119,7 +115,7 @@ class MySegTree:
         node.lazy = 0
         return
 
-    def push_up(self, node):
+    def pushUp(self, node):
         """
         向上更新，要求node的两个子节点均已更新完
         node:   当前节点
@@ -127,34 +123,34 @@ class MySegTree:
         node.val = max(node.left.val, node.right.val)
         return
 
-    def update(self, node, s, e, l, r, add):
+    def update(self, node, start, end, left, right, add):
         """
         更新闭区间[l, r]，给此区间内的每个值，都加上add
         闭区间[l, r]和当前区间[s, e]的交集一定非空
         node:   当前节点
-        s:      start，当前节点管理的左边界（含）
-        e:      end，当前节点管理的右边界（含）
-        l:      left，要更改的区间的左边界
-        r:      right，要更改的区间的右边界
+        start，当前节点管理的左边界（含）
+        end，当前节点管理的右边界（含）
+        left，要更改的区间的左边界
+        right，要更改的区间的右边界
         add:    addition，增量
         """
-        if l <= s and e <= r:
+        if left <= start and end <= right:
             node.val += add
             node.lazy += add
             return
 
-        self.push_down(node, s, e)
-        mid = s+((e-s)>>1)
+        self.pushDown(node, start, end)
+        mid = start + end >> 1
 
-        if l <= mid:
-            self.update(node.left, s, mid, l, r, add)
-        if r > mid:
-            self.update(node.right, mid+1, e, l, r, add)
+        if left <= mid:
+            self.update(node.left, start, mid, left, right, add)
+        if right > mid:
+            self.update(node.right, mid + 1, end, left, right, add)
 
-        self.push_up(node)
+        self.pushUp(node)
         return
 
-    def query(self, node, s, e, l, r):
+    def query(self, node, start, end, left, right):
         """
         查询闭区间[l, r]的区间最大值
         闭区间[l, r]和当前区间[s, e]一定是有交集的
@@ -164,17 +160,18 @@ class MySegTree:
         l:      left，要更改的区间的左边界
         r:      right，要更改的区间的右边界
         """
-        if l <= s and e <= r:
+        # [start,end] 在[left,right]之间 直接返回该线段对应的数量
+        if left <= start and end <= right:
             return node.val
 
-        self.push_down(node, s, e)
-        mid = s + ((e - s) >> 1)
+        self.pushDown(node, start, end)
+        mid = start + end >> 1
 
         ans = float('-inf')
-        if l <= mid:
-            ans = max(ans, self.query(node.left, s, mid, l, r))
-        if r > mid:
-            ans = max(ans, self.query(node.right, mid + 1, e, l, r))
+        if left <= mid:
+            ans = max(ans, self.query(node.left, start, mid, left, right))
+        if right > mid:
+            ans = max(ans, self.query(node.right, mid + 1, end, left, right))
 
         return ans
 
@@ -183,12 +180,10 @@ class MyCalendarTwo:
         self.size = 10 ** 9
         self.seg_tree = MySegTree(size=self.size)
 
-
     def book(self, start: int, end: int) -> bool:
         # 如果该时间段内任意时间片被预定超过2次说明无法预定当前请求
-        if self.seg_tree.query(self.seg_tree.root, 0, self.size, start, end-1) >= 2:
+        if self.seg_tree.query(self.seg_tree.root, 0, self.size, start, end - 1) >= 2:
             return False
         # 如果可以预定当前请求，为预定到的时间段内的每个时间片的占用次数+1
-        self.seg_tree.update(self.seg_tree.root, 0, self.size, start, end-1, 1)
+        self.seg_tree.update(self.seg_tree.root, 0, self.size, start, end - 1, 1)
         return True
-
