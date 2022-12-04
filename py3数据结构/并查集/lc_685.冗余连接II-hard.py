@@ -64,7 +64,15 @@ class ListNode:
 
 # -*- coding: utf-8 -*-
 # @Author  : zero
-# @Time    : 2022/12/04 12:12
+# @Time    : 2022/12/04 22:27
+"""
+计算入度
+根据入度的不同分两种情况：
+    存在入度为 2 的点 i：
+        若删去与 i 相连的某条边之后该图变成了一棵树，那么这条边为要返回的结果。
+    不存在入度为 2 的点：
+        必然存在有向环， 找到有向环的一条边就是要返回的答案。
+"""
 
 class UnionFind:
     def __init__(self, n):
@@ -80,13 +88,4 @@ class UnionFind:
         if root1 != root2:
             self.parent[root2] = root1
 
-class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
-        union = UnionFind(n + 1)
-        for x, y, v in roads:
-            union.merge(x, y)
-        ans = inf
-        for x, y, v in roads:
-            if union.find(x) == union.find(1):
-                ans = min(ans, v)
-        return ans
+

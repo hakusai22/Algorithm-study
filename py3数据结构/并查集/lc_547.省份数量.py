@@ -64,11 +64,11 @@ class ListNode:
 
 # -*- coding: utf-8 -*-
 # @Author  : zero
-# @Time    : 2022/12/04 12:12
-
+# @Time    : 2022/12/04 22:14
 class UnionFind:
     def __init__(self, n):
         self.parent = list(range(n))
+        self.count = n
 
     def find(self, x):
         if x != self.parent[x]:
@@ -79,14 +79,13 @@ class UnionFind:
         root1, root2 = self.find(a), self.find(b)
         if root1 != root2:
             self.parent[root2] = root1
+            self.count -= 1
 
 class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
-        union = UnionFind(n + 1)
-        for x, y, v in roads:
-            union.merge(x, y)
-        ans = inf
-        for x, y, v in roads:
-            if union.find(x) == union.find(1):
-                ans = min(ans, v)
-        return ans
+    def findCircleNum(self, M: List[List[int]]) -> int:
+        union = UnionFind(len(M))
+        for i in range(len(M)):
+            for j in range(i + 1, len(M)):
+                if M[i][j] == 1:
+                    union.merge(i, j)
+        return union.count

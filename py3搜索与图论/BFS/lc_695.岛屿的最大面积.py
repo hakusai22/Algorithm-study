@@ -64,29 +64,29 @@ class ListNode:
 
 # -*- coding: utf-8 -*-
 # @Author  : zero
-# @Time    : 2022/12/04 12:12
-
-class UnionFind:
-    def __init__(self, n):
-        self.parent = list(range(n))
-
-    def find(self, x):
-        if x != self.parent[x]:
-            self.parent[x] = self.find(self.parent[x])
-        return self.parent[x]
-
-    def merge(self, a, b):
-        root1, root2 = self.find(a), self.find(b)
-        if root1 != root2:
-            self.parent[root2] = root1
-
+# @Time    : 2022/12/04 21:21
 class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
-        union = UnionFind(n + 1)
-        for x, y, v in roads:
-            union.merge(x, y)
-        ans = inf
-        for x, y, v in roads:
-            if union.find(x) == union.find(1):
-                ans = min(ans, v)
-        return ans
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        def bfs(grid, x, y):
+            # 第一个点加入队列
+            queue = [[x, y]]
+            # 只要队列里面有东西就继续
+            while queue:
+                # 考虑当前最先进去的点
+                [x, y] = queue.pop(0)
+                # 满足条件不超界，不是0
+                if 0 <= x < len(grid) and 0 <= y < len(grid[0]) and grid[x][y]:
+                    # 标记已经遍历过的
+                    grid[x][y] = 0
+                    # 记录当前面积
+                    self.result += 1
+                    queue += [[x - 1, y], [x, y - 1], [x + 1, y], [x, y + 1]]
+            return self.result
+
+        res = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == 1:
+                    self.result = 0
+                    res = max(res, bfs(grid, i, j))
+        return res

@@ -65,6 +65,12 @@ class ListNode:
 # -*- coding: utf-8 -*-
 # @Author  : zero
 # @Time    : 2022/12/04 12:12
+"""
+使用并查集来判断一个图中是否存在环：
+对于无向图来说，在遍历边（u-v）时，如果结点 u 和结点 v 的“父亲”相同，那么结点 u 和结点 v 在同一个环中。
+对于有向图来说，在遍历边（u->v）时，如果结点 u 的“父亲”是结点 v，那么结点 u 和结点 v 在同一个环中。
+"""
+
 
 class UnionFind:
     def __init__(self, n):
@@ -80,13 +86,11 @@ class UnionFind:
         if root1 != root2:
             self.parent[root2] = root1
 
-class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
-        union = UnionFind(n + 1)
-        for x, y, v in roads:
-            union.merge(x, y)
-        ans = inf
-        for x, y, v in roads:
-            if union.find(x) == union.find(1):
-                ans = min(ans, v)
-        return ans
+class Solution(object):
+    def findRedundantConnection(self, edges):
+        union = UnionFind(len(edges) + 10)
+        for s, e in edges:
+            if union.find(s) == union.find(e):
+                return [s, e]
+            else:
+                union.merge(s, e)

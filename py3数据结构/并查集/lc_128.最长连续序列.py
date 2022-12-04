@@ -80,9 +80,9 @@ class UnionFind:
         self.cnt = defaultdict(lambda: 1)
 
     def find(self, x):
-        while x != self.parent[x]:
-            x = self.parent[x]
-        return x
+        if x != self.parent[x]:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
 
     def union(self, x, y):
         if y not in self.parent:

@@ -64,7 +64,7 @@ class ListNode:
 
 # -*- coding: utf-8 -*-
 # @Author  : zero
-# @Time    : 2022/12/04 12:12
+# @Time    : 2022/12/04 21:40
 
 class UnionFind:
     def __init__(self, n):
@@ -81,12 +81,26 @@ class UnionFind:
             self.parent[root2] = root1
 
 class Solution:
-    def minScore(self, n: int, roads: List[List[int]]) -> int:
-        union = UnionFind(n + 1)
-        for x, y, v in roads:
-            union.merge(x, y)
-        ans = inf
-        for x, y, v in roads:
-            if union.find(x) == union.find(1):
-                ans = min(ans, v)
+    def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
+        n = len(accounts)
+        uf = UnionFind(n)
+        email_to_index = {}
+        for i in range(n):
+            m = len(accounts[i])
+            for j in range(1, m):
+                email = accounts[i][j]
+                if email not in email_to_index:
+                    email_to_index[email] = i
+                # 存在重复的邮箱地址时 合并
+                else:
+                    uf.merge(i, email_to_index[email])
+
+        index_to_email = defaultdict(list)
+        for email, index in email_to_index.items():
+            index_to_email[uf.find(index)].append(email)
+
+        ans = []
+        for index, email in index_to_email.items():
+            ans.append([accounts[index][0]] + sorted(email))
+
         return ans
