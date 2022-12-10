@@ -14,6 +14,8 @@ import os
 
 MOD = int(1e9 + 7)
 INF = int(1e20)
+INFMIN = float('-inf')
+INFMAX = float('inf')
 '''
 gcd(), ord(), chr(), lower(), upper() 最大公约数/ASCII字符数值/数值ASCII字符/小写/大写
 startswith(s), endswith(s), find(), index(), count(s)  字符串是否以s开始的/字符串是否以s结尾的/查找返回的是索引/获取索引
@@ -64,30 +66,17 @@ class ListNode:
 
 # -*- coding: utf-8 -*-
 # @Author  : zero
-# @Time    : 2022/12/04 21:21
-class Solution:
-    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-        def bfs(grid, x, y):
-            nonlocal result
-            # 第一个点加入队列
-            queue = [[x, y]]
-            # 只要队列里面有东西就继续
-            while queue:
-                # 考虑当前最先进去的点
-                [x, y] = queue.pop(0)
-                # 满足条件不超界，不是0
-                if 0 <= x < len(grid) and 0 <= y < len(grid[0]) and grid[x][y]:
-                    # 标记已经遍历过的
-                    grid[x][y] = 0
-                    # 记录当前面积
-                    result += 1
-                    queue += [[x - 1, y], [x, y - 1], [x + 1, y], [x, y + 1]]
-            return result
+# @Time    : 2022/12/10 16:51
 
-        res = 0
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == 1:
-                    result = 0
-                    res = max(res, bfs(grid, i, j))
-        return res
+class Solution:
+    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+        left, right = 0, len(arr) - k
+        while left < right:
+            mid = left + right >> 1
+            # 说明左边的差值比右边差值大 mid+1
+            if x - arr[mid] > arr[mid + k] - x:
+                left = mid + 1
+            else:
+                right = mid
+
+        return arr[left:left + k]
