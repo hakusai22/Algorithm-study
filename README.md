@@ -14,6 +14,8 @@
 
 <h3 align="center">算法学习笔记</h3>
 
+![img.png](img.png)
+
 <!-- links -->
 [your-project-path]:hakusai22/douyin
 [contributors-shield]: https://img.shields.io/github/contributors/hakusai22/douyin.svg?style=flat-square
