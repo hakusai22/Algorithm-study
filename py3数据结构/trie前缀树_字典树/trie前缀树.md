@@ -48,3 +48,8 @@ def insert(char):
     # 返回字符串出现的次数
     return cnt[p]
 ```
+
+
+![img.png](img.png)
+
+![img_1.png](img_1.png)
