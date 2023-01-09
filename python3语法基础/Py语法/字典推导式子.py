@@ -67,3 +67,22 @@ if __name__ == '__main__':
     # value if not key.islower() else 'error' 这一段的代码的含义是：
     # 如果not key.islouer()--key值不是小写的，那么返回if前面的value值，否则就返回else后面的值。
     print(new_dict_5)
+
+    # 将key中大小写相同的字母的value值求和
+    dict_a = {'a': 2, 'B': 5, 'A': 7, 'C': 10}
+    new_dict_1 = {key.lower(): dict_a.get(key.lower(), 0) + dict_a.get(key.upper(), 0) for key in dict_a.keys() if key.lower() in ['a', 'b']}
+    print(new_dict_1)
+
+
+    # 将字典中key、value互换位置
+    d = {1: 'a', 2: 'b', 3: 'c'}
+    dd = {key: value for value, key in d.items()}
+    print(d)
+    print(dd)
+
+    # 将两个长度相同的列表合并成字典
+    name = ['zhangsan', 'lisi', 'wangwu', 'maliu']
+    sign = ['双鱼座', '天蝎座', '水瓶座', '巨蟹座']
+    new_dict_2 = {name: value for name, value in zip(name, sign)}
+    print(new_dict_2)
+    print(type(zip(name, sign)))

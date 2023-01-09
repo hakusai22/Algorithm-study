@@ -3,7 +3,6 @@ from math import ceil, floor, pow, gcd, sqrt, log10, fabs, fmod, factorial, inf,
 from heapq import heapify, heapreplace, heappush, heappop, heappushpop, nlargest, nsmallest
 from typing import List, Tuple, Optional, Dict, Set
 from collections import defaultdict, Counter, deque, OrderedDict, namedtuple
-from itertools import permutations, combinations, combinations_with_replacement, accumulate, count, groupby
 from queue import PriorityQueue, Queue, LifoQueue
 from functools import lru_cache, reduce
 from copy import deepcopy
@@ -18,14 +17,9 @@ INFMIN = float('-inf')
 INFMAX = float('inf')
 
 if __name__ == '__main__':
-    dict1 = defaultdict(set)
-    dict1["1"] = "100"
-    print(dict1["1"])
-    print(dict1[1])
-    c = Counter()
-    c[0] = 1
-    print(c[0])
-
-    print(type(dict1.items()))
-    print(chr(98))
-
+    """
+    python 3.10.0版本
+    """
+    from itertools import pairwise
+    a = pairwise('12345')
+    print(a)

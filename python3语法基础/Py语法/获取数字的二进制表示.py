@@ -18,14 +18,7 @@ INFMIN = float('-inf')
 INFMAX = float('inf')
 
 if __name__ == '__main__':
-    dict1 = defaultdict(set)
-    dict1["1"] = "100"
-    print(dict1["1"])
-    print(dict1[1])
-    c = Counter()
-    c[0] = 1
-    print(c[0])
+    print(bin(8))
+    print(bin(-8 & 0b1111111111111111))
 
-    print(type(dict1.items()))
-    print(chr(98))
 
