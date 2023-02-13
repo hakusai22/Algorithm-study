@@ -7,62 +7,18 @@ from itertools import permutations, combinations, combinations_with_replacement,
 from queue import PriorityQueue, Queue, LifoQueue
 from functools import lru_cache, reduce
 from copy import deepcopy
-from io import BytesIO, IOBase
-import random
-import sys
-import os
 
-'''
-gcd(), ord(), chr(), lower(), upper() 最大公约数/ASCII字符数值/数值ASCII字符/小写/大写
-startswith(s), endswith(s), find(), index(), count(s)  字符串是否以s开始的/字符串是否以s结尾的/查找返回的是索引/获取索引
-isalpha(), isdigit(), space(),join()  判断是否全为字符/判断是否全为数字/判断是否为空格/拼接
-eval() 字符串转换成列表、元组或者字典/
-uniform(x, y), pow(x, y)# 随机生成下一个实数，它在[x,y]范围内/ x**y 运算后的值。
-字典推倒式 {key: len(key) for key in list}
-列表推倒式 [i for i in range(100) if i % 3 == 0] 可切片,可索引,可重复
-集合推倒式 {i ** 2 for i in (1, 2, 3)}  不可索引,不可切片,不可重复元素
-'''
 
-def I():
-    return input()
-
-def II():
-    return int(input())
-
-def IF():
-    return float(input())
-
-def MI():
-    return map(int, input().split())
-
-def MF():
-    return map(float, input().split())
-
-def LI():
-    return list(input().split())
-
-def LII():
-    return list(map(int, input().split()))
-
-def LFI():
-    return list(map(float, input().split()))
-
-def GMI():
-    return map(lambda x: int(x) - 1, input().split())
-
-def LGMI():
-    return list(map(lambda x: int(x) - 1, input().split()))
-
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-# -*- coding: utf-8 -*-
-# @Author  : zero
-# @Time    : 2022/11/20 22:09
+"""
+    给定一个包含 n 个点（编号为 1∼n）的无向图，初始时图中没有边。
+    现在要进行 m 个操作，操作共有三种：
+        1. C a b，在点 a点 b之间连一条边，a和 b可能相等；
+        2. Q1 a b，询问点 a和点 b是否在同一个连通块中，a和 b可能相等；
+        3. Q2 a，询问点 a所在连通块中点的数量；
+        
+    对于每个询问指令 Q1 a b，如果 a 和 b 在同一个连通块中，则输出 Yes，否则输出 No。
+    对于每个询问指令 Q2 a，输出一个整数表示点 a 所在连通块中点的数量
+"""
 
 if __name__ == '__main__':
     N = 100010
@@ -99,4 +55,3 @@ if __name__ == '__main__':
             a = int(li[1])
             print(size[find(a)])
 
-# https://www.acwing.com/problem/content/839/

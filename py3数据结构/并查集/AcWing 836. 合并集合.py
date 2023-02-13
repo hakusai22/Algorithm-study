@@ -12,57 +12,17 @@ import random
 import sys
 import os
 
-'''
-gcd(), ord(), chr(), lower(), upper() 最大公约数/ASCII字符数值/数值ASCII字符/小写/大写
-startswith(s), endswith(s), find(), index(), count(s)  字符串是否以s开始的/字符串是否以s结尾的/查找返回的是索引/获取索引
-isalpha(), isdigit(), space(),join()  判断是否全为字符/判断是否全为数字/判断是否为空格/拼接
-eval() 字符串转换成列表、元组或者字典/
-uniform(x, y), pow(x, y)# 随机生成下一个实数，它在[x,y]范围内/ x**y 运算后的值。
-字典推倒式 {key: len(key) for key in list}
-列表推倒式 [i for i in range(100) if i % 3 == 0] 可切片,可索引,可重复
-集合推倒式 {i ** 2 for i in (1, 2, 3)}  不可索引,不可切片,不可重复元素
-'''
 
-def I():
-    return input()
-
-def II():
-    return int(input())
-
-def IF():
-    return float(input())
-
-def MI():
-    return map(int, input().split())
-
-def MF():
-    return map(float, input().split())
-
-def LI():
-    return list(input().split())
-
-def LII():
-    return list(map(int, input().split()))
-
-def LFI():
-    return list(map(float, input().split()))
-
-def GMI():
-    return map(lambda x: int(x) - 1, input().split())
-
-def LGMI():
-    return list(map(lambda x: int(x) - 1, input().split()))
-
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-# -*- coding: utf-8 -*-
-# @Author  : zero
-# @Time    : 2022/11/20 21:52
+"""
+    一共有 n个数，编号是 1∼n，最开始每个数各自在一个集合中。
+    现在要进行 m个操作，操作共有两种：
+        M a b，将编号为 a 和 b的两个数所在的集合合并，如果两个数已经在同一个集合中，则忽略这个操作；
+        Q a b，询问编号为 a 和 b的两个数是否在同一个集合中；
+        
+    对于每个询问指令 Q a b，都要输出一个结果，如果 a 和 b 在同一集合内，则输出 Yes，否则输出 No
+    数据范围
+        1≤n,m≤10^5
+"""
 
 
 if __name__ == '__main__':
@@ -84,7 +44,7 @@ if __name__ == '__main__':
 
     # 循环遍历所有输入并进行合并和查询操作
     while m:
-        row = LI()
+        row = list(input().split())
         if row[0] == 'M':
             # 合并的时候将a的根节点插到b的根节点上
             p[find(int(row[1]))] = find(int(row[2]))
@@ -95,4 +55,3 @@ if __name__ == '__main__':
                 print('No')
         m -= 1
 
-# https://www.acwing.com/problem/content/838/
