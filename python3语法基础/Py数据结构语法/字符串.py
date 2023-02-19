@@ -6,19 +6,31 @@ from collections import defaultdict, Counter, deque, OrderedDict, namedtuple
 from itertools import permutations, combinations, combinations_with_replacement, accumulate, count, groupby
 from queue import PriorityQueue, Queue, LifoQueue
 from functools import lru_cache, reduce
-from copy import deepcopy
-from io import BytesIO, IOBase
-import random
-import sys
-import os
 
 MOD = int(1e9 + 7)
 INF = int(1e20)
 INFMIN = float('-inf')
 INFMAX = float('inf')
 
+# -*- coding: utf-8 -*-
+# @Author  : wheat
+# @Time    : 2023/02/19 16:23
+
 if __name__ == '__main__':
-    a = (b := (c := (d := 5)))
-    print(a, b, c, d)
-    b = 3 * (a := 4)
-    print(b)
+    str = " qwertyuiop "
+    print(str.count("q"))
+
+    print(str.capitalize())
+    print(str.strip())
+    print(str.find("q", 1, 10))
+
+    print(str.isspace())
+    print(str.index("t", 1, 10))
+    print(str.isdigit())
+    print(" ".join(str))
+    print(str.split("t"))
+    print(str.isalpha())
+    print(str.upper())
+    print(str.lower())
+
+    print(str.replace("q","z"))

@@ -6,19 +6,27 @@ from collections import defaultdict, Counter, deque, OrderedDict, namedtuple
 from itertools import permutations, combinations, combinations_with_replacement, accumulate, count, groupby
 from queue import PriorityQueue, Queue, LifoQueue
 from functools import lru_cache, reduce
-from copy import deepcopy
-from io import BytesIO, IOBase
-import random
-import sys
-import os
 
 MOD = int(1e9 + 7)
 INF = int(1e20)
 INFMIN = float('-inf')
 INFMAX = float('inf')
 
+# -*- coding: utf-8 -*-
+# @Author  : wheat
+# @Time    : 2023/02/19 16:14
+
 if __name__ == '__main__':
-    print(bin(8))
-    print(bin(-8 & 0b1111111111111111))
+    str = "sadfasdfasd"
+    s = set(str)
+    print(s)
+    m = Counter(s)
 
+    print(m)
 
+    s.add(432)
+    s.update({234, 234})
+    s.update([234, 223434])
+    s.remove(234)
+
+    print(s)
