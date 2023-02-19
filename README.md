@@ -13,7 +13,7 @@
 
 <h3 align="center">Python3 算法学习笔记 🔞</h3>
 
-![img.png](img.png)
+<img src="https://fastly.jsdelivr.net/gh/hakusai22/Algorithm-study/img.png"/>
 
 <!-- links -->
 [your-project-path]:hakusai22/Algorithm-study
@@ -30,4 +30,5 @@
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/xxxx
 
-![img_1.png](img_1.png)
+<img src="https://fastly.jsdelivr.net/gh/hakusai22/Algorithm-study/img_1.png"/>
+
