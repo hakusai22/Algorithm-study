@@ -113,11 +113,13 @@ class TreeNode:
 # @Author  : zero
 # @Time    : 2022/11/20 20:51
 if __name__ == '__main__':
+
+    m = dict()
     n, m = MI()
     dx = [0, 1, 0, -1]
     dy = [1, 0, -1, 0]
     N, k, x, y, d = 110, 1, 0, 0, 0
-    g = [[0]* N for i in range (N)]
+    g = [[0] * N for i in range(N)]
 
     while k <= n * m:
         g[x][y] = k
@@ -134,4 +136,3 @@ if __name__ == '__main__':
         for j in range(m):
             print(g[i][j], end=' ')
         print()
-
