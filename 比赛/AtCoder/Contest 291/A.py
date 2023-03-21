@@ -6,6 +6,7 @@ from itertools import permutations, combinations, combinations_with_replacement,
 from queue import PriorityQueue, Queue, LifoQueue
 from functools import lru_cache
 import sys
+
 sys.setrecursionlimit(10001000)
 
 MOD = int(1e9 + 7)
@@ -17,9 +18,15 @@ direc = [(1, 0), (0, 1), (-1, 0), (0, -1)]
 direc8 = [(1, 0), (0, 1), (-1, 0), (0, -1), (1, 1), (1, -1), (-1, 1), (-1, -1)]
 ALPS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 alps = 'abcdefghijklmnopqrstuvwxyz'
-def alp(i): return chr(ord('a') + i%26)    # i=0->'a', i=25->'z'
-def input(): return sys.stdin.readline().rstrip()
-def end(r=-1): print(r); exit()
+
+def alp(i):
+    return chr(ord('a') + i % 26)  # i=0->'a', i=25->'z'
+
+def input():
+    return sys.stdin.readline().rstrip()
+
+def end(r=-1):
+    print(r); exit()
 
 # -*- coding: utf-8 -*-
 # @Author  : wheat
@@ -29,4 +36,4 @@ if __name__ == '__main__':
     s = input()
     for i, c in enumerate(s):
         if c in ALPS:
-            end(i+1)
+            end(i + 1)
