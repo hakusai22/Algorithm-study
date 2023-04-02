@@ -4,7 +4,7 @@ from heapq import heapify, heapreplace, heappush, heappop, heappushpop, nlargest
 from collections import defaultdict, Counter, deque
 from itertools import permutations, combinations, combinations_with_replacement, accumulate, count, groupby
 from queue import PriorityQueue, Queue, LifoQueue
-from functools import lru_cache
+from functools import lru_cache, cache
 import sys
 from typing import List
 
