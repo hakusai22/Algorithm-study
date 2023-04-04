@@ -6,6 +6,7 @@ from itertools import permutations, combinations, combinations_with_replacement,
 from queue import PriorityQueue, Queue, LifoQueue
 from functools import lru_cache
 import sys
+from typing import List
 
 sys.setrecursionlimit(10001000)
 
@@ -31,18 +32,21 @@ def end(r=-1):
 
 # -*- coding: utf-8 -*-
 # @Author  : wheat
-# @Time    : 2023/04/01 13:05
-# https://leetcode.cn/problems/masking-personal-information/
+# @Time    : 2023/04/03 14:36
+# https://leetcode.cn/contest/weekly-contest-338/problems/minimum-operations-to-make-all-array-elements-equal/
 
 class Solution:
-    def maskPII(self, s: str) -> str:
-        if s[0].isalpha():
-            s = s.lower()
-            return s[0] + '*****' + s[s.find('@') - 1:]
-        s = ''.join(c for c in s if c.isdigit())
-        cnt = len(s) - 10
-        suf = '***-***-' + s[-4:]
-        return suf if cnt == 0 else f'+{"*" * cnt}-{suf}'
+    def minOperations(self, nums: List[int], queries: List[int]) -> List[int]:
+        nums = sorted(nums)
+        n = len(nums)
+        pre_sum = [0]
+        for t in nums:
+            pre_sum.append(pre_sum[-1] + t)
+        to_ret = []
+        for t in queries:
+            pt = bisect(nums, t + .1)
+            part_1 = t * pt - pre_sum[pt]
+            part_2 = (pre_sum[-1] - pre_sum[pt]) - t * (n - pt)
+            to_ret.append(part_1 + part_2)
 
-if __name__ == '__main__':
-    print(f'{"yinpeng" * 6}')
+        return to_ret

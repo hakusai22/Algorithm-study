@@ -6,6 +6,7 @@ from itertools import permutations, combinations, combinations_with_replacement,
 from queue import PriorityQueue, Queue, LifoQueue
 from functools import lru_cache
 import sys
+from typing import List
 
 sys.setrecursionlimit(10001000)
 
@@ -31,18 +32,32 @@ def end(r=-1):
 
 # -*- coding: utf-8 -*-
 # @Author  : wheat
-# @Time    : 2023/04/01 13:05
-# https://leetcode.cn/problems/masking-personal-information/
+# @Time    : 2023/04/03 14:36
+
+def primeUpTo(n):
+    primes = set(range(2, n + 1))
+    for i in range(2, n):
+        if i in primes:
+            it = i * 2
+            while it <= n:
+                if it in primes:
+                    primes.remove(it)
+                it += i
+    return primes
 
 class Solution:
-    def maskPII(self, s: str) -> str:
-        if s[0].isalpha():
-            s = s.lower()
-            return s[0] + '*****' + s[s.find('@') - 1:]
-        s = ''.join(c for c in s if c.isdigit())
-        cnt = len(s) - 10
-        suf = '***-***-' + s[-4:]
-        return suf if cnt == 0 else f'+{"*" * cnt}-{suf}'
-
-if __name__ == '__main__':
-    print(f'{"yinpeng" * 6}')
+    def primeSubOperation(self, nums: List[int]) -> bool:
+        pls = list(primeUpTo(1000))
+        pls.append(0)
+        pls.append(10000)
+        pls.sort()
+        pres = 0
+        for a in nums:
+            a -= pres
+            if a <= pls[0]:
+                return False
+            i = 0
+            while i < len(pls) and a > pls[i + 1]:
+                i += 1
+            pres += a - pls[i]
+        return True

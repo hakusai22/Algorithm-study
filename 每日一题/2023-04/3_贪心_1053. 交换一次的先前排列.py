@@ -6,6 +6,7 @@ from itertools import permutations, combinations, combinations_with_replacement,
 from queue import PriorityQueue, Queue, LifoQueue
 from functools import lru_cache
 import sys
+from typing import List
 
 sys.setrecursionlimit(10001000)
 
@@ -31,18 +32,16 @@ def end(r=-1):
 
 # -*- coding: utf-8 -*-
 # @Author  : wheat
-# @Time    : 2023/04/01 13:05
-# https://leetcode.cn/problems/masking-personal-information/
+# @Time    : 2023/04/03 09:12
+# https://leetcode.cn/problems/previous-permutation-with-one-swap/
 
 class Solution:
-    def maskPII(self, s: str) -> str:
-        if s[0].isalpha():
-            s = s.lower()
-            return s[0] + '*****' + s[s.find('@') - 1:]
-        s = ''.join(c for c in s if c.isdigit())
-        cnt = len(s) - 10
-        suf = '***-***-' + s[-4:]
-        return suf if cnt == 0 else f'+{"*" * cnt}-{suf}'
-
-if __name__ == '__main__':
-    print(f'{"yinpeng" * 6}')
+    def prevPermOpt1(self, arr: List[int]) -> List[int]:
+        n = len(arr)
+        for i in range(n - 1, 0, -1):
+            if arr[i - 1] > arr[i]:
+                for j in range(n - 1, i - 1, -1):
+                    if arr[j] < arr[i - 1] and arr[j] != arr[j - 1]:
+                        arr[i - 1], arr[j] = arr[j], arr[i - 1]
+                        return arr
+        return arr

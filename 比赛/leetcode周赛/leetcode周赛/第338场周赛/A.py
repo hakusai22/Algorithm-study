@@ -31,18 +31,12 @@ def end(r=-1):
 
 # -*- coding: utf-8 -*-
 # @Author  : wheat
-# @Time    : 2023/04/01 13:05
-# https://leetcode.cn/problems/masking-personal-information/
+# @Time    : 2023/04/03 14:36
 
 class Solution:
-    def maskPII(self, s: str) -> str:
-        if s[0].isalpha():
-            s = s.lower()
-            return s[0] + '*****' + s[s.find('@') - 1:]
-        s = ''.join(c for c in s if c.isdigit())
-        cnt = len(s) - 10
-        suf = '***-***-' + s[-4:]
-        return suf if cnt == 0 else f'+{"*" * cnt}-{suf}'
-
-if __name__ == '__main__':
-    print(f'{"yinpeng" * 6}')
+    def kItemsWithMaximumSum(self, numOnes: int, numZeros: int, numNegOnes: int, k: int) -> int:
+        if k <= numOnes:
+            return k
+        if k <= numOnes + numZeros:
+            return numOnes
+        return numOnes - (k - numOnes - numZeros)
