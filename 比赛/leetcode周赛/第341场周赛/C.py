@@ -33,7 +33,32 @@ def end(r=-1):
 # @Author  : wink
 # @Time    : 2023/04/16 10:09
 
-
-
-
-
+class Solution:
+    def addMinimum(self, word: str) -> int:
+        stack = []
+        count = 0
+        for c in word:
+            if c == "a":
+                stack.append(c)
+            elif c == "b":
+                if not stack or stack[-1] == "b":
+                    stack.extend(["a", "c"])
+                    count += 2
+                else:
+                    stack.pop()
+                    stack.append(c)
+                    stack.append("c")
+                    count += 1
+            else:
+                if not stack or stack[-1] == "b":
+                    stack.extend(["a", "b"])
+                    count += 2
+                else:
+                    stack.pop()
+                    stack.pop()
+                    count += 1
+        if len(stack) == 1:
+            count += 2
+        elif len(stack) == 2:
+            count += 1
+        return count

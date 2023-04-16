@@ -6,6 +6,7 @@ from itertools import permutations, combinations, combinations_with_replacement,
 from queue import PriorityQueue, Queue, LifoQueue
 from functools import lru_cache
 import sys
+from typing import List
 
 sys.setrecursionlimit(10001000)
 
@@ -32,8 +33,43 @@ def end(r=-1):
 # -*- coding: utf-8 -*-
 # @Author  : wink
 # @Time    : 2023/04/16 11:04
+class Solution:
+    def minimumTotalPrice(self, n: int, edges: List[List[int]], price: List[int], trips: List[List[int]]) -> int:
+        # 构建树的邻接表
+        adj = [[] for _ in range(n)]
+        for u, v in edges:
+            adj[u].append(v)
+            adj[v].append(u)
 
+        # 标记需要减半价格的节点
+        half_price = [False] * n
+        for u in range(n):
+            for v in adj[u]:
+                if price[v] < price[u]:
+                    half_price[u] = True
+                    break
 
+        # 减半价格
+        for u in range(n):
+            if half_price[u]:
+                for v in adj[u]:
+                    price[v] *= 0.5
 
-
-
+        # 计算每次旅行的最小价格总和
+        ans = 0
+        for start, end in trips:
+            q = deque([(start, 0)])
+            visited = set()
+            while q:
+                u, cost = q.popleft()
+                if u == end:
+                    ans += cost
+                    break
+                visited.add(u)
+                for v in adj[u]:
+                    if v not in visited:
+                        new_cost = cost + price[v]
+                        if half_price[v]:
+                            new_cost *= 0.5
+                        q.append((v, new_cost))
+        return int(ans)

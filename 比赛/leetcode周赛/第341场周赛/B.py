@@ -1,3 +1,4 @@
+
 from bisect import bisect_left, bisect_right, insort_left, insort_right, insort, bisect
 from math import ceil, floor, pow, gcd, sqrt, log10, fabs, fmod, factorial, inf, pi, e
 from heapq import heapify, heapreplace, heappush, heappop, heappushpop, nlargest, nsmallest
@@ -6,6 +7,7 @@ from itertools import permutations, combinations, combinations_with_replacement,
 from queue import PriorityQueue, Queue, LifoQueue
 from functools import lru_cache
 import sys
+from typing import List
 
 sys.setrecursionlimit(10001000)
 
@@ -33,7 +35,16 @@ def end(r=-1):
 # @Author  : wink
 # @Time    : 2023/04/16 10:09
 
-
-
-
-
+class Solution:
+    def maxDivScore(self, nums: List[int], divisors: List[int]) -> int:
+        scores = [0] * len(divisors)  # 初始化得分数组
+        for i, d in enumerate(divisors):
+            for n in nums:
+                if n % d == 0:
+                    scores[i] += 1  # 计算得分
+        max_score = max(scores)  # 找到最大得分
+        max_divisor = float('inf')
+        for i, score in enumerate(scores):
+            if score == max_score and divisors[i] < max_divisor:
+                max_divisor = divisors[i]  # 找到得分最大的、数值最小的除数
+        return max_divisor

@@ -6,6 +6,7 @@ from itertools import permutations, combinations, combinations_with_replacement,
 from queue import PriorityQueue, Queue, LifoQueue
 from functools import lru_cache
 import sys
+from typing import List
 
 sys.setrecursionlimit(10001000)
 
@@ -33,7 +34,17 @@ def end(r=-1):
 # @Author  : wink
 # @Time    : 2023/04/16 10:08
 
+class Solution:
+    def rowAndMaximumOnes(self, mat: List[List[int]]) -> List[int]:
+        m, n = len(mat), len(mat[0])
+        max_ones, max_idx = 0, -1
 
+        for i in range(m):
+            ones = sum(mat[i])
+            if ones > max_ones:
+                max_ones = ones
+                max_idx = i
+            elif ones == max_ones and max_idx == -1:
+                max_idx = i
 
-
-
+        return [max_idx, max_ones]
