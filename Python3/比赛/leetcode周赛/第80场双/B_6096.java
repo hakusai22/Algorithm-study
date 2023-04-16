@@ -6,7 +6,6 @@ class B_6096 {
     Arrays.sort(potions);
     for (int i = 0; i < spells.length; i++) {
       long temp = spells[i];
-      int count = 0;
       int l = 0, r = potions.length;
       while (l < r) {
         int m = (l + r)/2;

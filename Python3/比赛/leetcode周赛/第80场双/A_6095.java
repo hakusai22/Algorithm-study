@@ -4,7 +4,6 @@ class A_6095 {
     boolean a2 = false;
     boolean a3 = false;
     boolean a4 = false;
-    boolean a6 = false;
 
     String a5 = "!@#$%^&*()-+";
     if (password.length() < 8) {
@@ -25,7 +24,6 @@ class A_6095 {
         a4 = true;
       }
       if (c == c1) {
-        a6 = true;
         return false;
       }
       c1 = c;
