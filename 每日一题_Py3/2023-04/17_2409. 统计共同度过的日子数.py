@@ -6,3 +6,4 @@ class Solution:
         x=sum(days[:int(a[:2])-1])+int(a[3:])
         y=sum(days[:int(b[:2])-1])+int(b[3:])
         return max(y-x+1,0)
+    
