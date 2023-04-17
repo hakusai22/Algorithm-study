@@ -1,8 +1,3 @@
-/**
- * Copyright (c) 2022, Bongmi
- * All rights reserved
- * Author: yinpeng@bongmi.com
- */
 
 public class B_6106_并查集 {
 
