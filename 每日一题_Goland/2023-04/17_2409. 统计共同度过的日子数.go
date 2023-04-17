@@ -1,6 +1,9 @@
 package main
 
-import "strconv"
+import (
+	"fmt"
+	"strconv"
+)
 
 func countDaysTogether(arriveAlice string, leaveAlice string, arriveBob string, leaveBob string) int {
 	days := []int{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
@@ -27,4 +30,8 @@ func countDaysTogether(arriveAlice string, leaveAlice string, arriveBob string, 
 		return 0
 	}
 	return ans
+}
+
+func main() {
+	fmt.Println("fasdf")
 }
