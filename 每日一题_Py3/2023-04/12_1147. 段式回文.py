@@ -1,3 +1,9 @@
+'''
+Author: hakusai
+Date: 2023-04-12 19:36:36
+LastEditTime: 2023-04-18 00:25:31
+FilePath: /Algorithm-study/每日一题_Py3/2023-04/12_1147. 段式回文.py
+'''
 from bisect import bisect_left, bisect_right, insort_left, insort_right, insort, bisect
 from math import ceil, floor, pow, gcd, sqrt, log10, fabs, fmod, factorial, inf, pi, e
 from heapq import heapify, heapreplace, heappush, heappop, heappushpop, nlargest, nsmallest
