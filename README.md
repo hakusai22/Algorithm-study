@@ -1,3 +1,9 @@
+<!--
+ * @Author: hakusai
+ * @Date: 2022-06-08 20:20:03
+ * @LastEditTime: 2023-04-18 17:55:39
+ * @FilePath: /Algorithm-study/README.md
+-->
 # Algorithm-study
 
 <!-- PROJECT SHIELDS -->
@@ -11,7 +17,7 @@
 <!-- PROJECT LOGO -->
 <br />
 
-<h3 align="center">Python3 算法学习笔记 🔞</h3>
+<h3 align="center">算法学习笔记 🔞</h3>
 
 <img src="https://fastly.jsdelivr.net/gh/hakusai22/Algorithm-study/img.png"/>
 
