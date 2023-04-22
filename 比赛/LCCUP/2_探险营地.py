@@ -1,7 +1,7 @@
 '''
 Author: hakusai
 Date: 2023-04-22 17:37:10
-LastEditTime: 2023-04-22 21:11:20
+LastEditTime: 2023-04-22 21:58:38
 '''
 
 
@@ -26,3 +26,7 @@ class Solution:
                 mx = cur
                 ans = i
         return ans
+
+
+if __name__ == "__main__":
+    print(Solution().adventureCamp(["3243", "23423"]))
