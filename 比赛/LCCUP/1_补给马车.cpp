@@ -1,10 +1,10 @@
 /*
  * @Author: hakusai
  * @Date: 2023-04-22 17:42:21
- * @LastEditTime: 2023-04-22 21:10:51
+ * @LastEditTime: 2023-04-22 21:48:17
  */
-#include <iostream>
-#include <vector>
+
+#include <bits/stdc++.h>
 
 using namespace std;
 
