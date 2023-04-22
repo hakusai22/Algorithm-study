@@ -1,7 +1,7 @@
 '''
 Author: hakusai
 Date: 2023-04-22 17:37:10
-LastEditTime: 2023-04-22 17:39:12
+LastEditTime: 2023-04-22 21:11:20
 '''
 
 
@@ -26,4 +26,3 @@ class Solution:
                 mx = cur
                 ans = i
         return ans
-        
