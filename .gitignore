@@ -12,7 +12,6 @@ buildNumber.properties
 .settings/
 .project
 .classpath
-.vscode/
 .idea/
 ./production/*.class
 /production/
