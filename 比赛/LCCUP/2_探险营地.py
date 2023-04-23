@@ -1,7 +1,7 @@
 '''
 Author: hakusai
 Date: 2023-04-22 17:37:10
-LastEditTime: 2023-04-22 22:21:53
+LastEditTime: 2023-04-23 10:22:01
 '''
 
 
@@ -27,7 +27,6 @@ class Solution:
                 ans = i
         return ans
 
-    
+
 if __name__ == "__main__":
     print(Solution().adventureCamp(["1"]))
-    
