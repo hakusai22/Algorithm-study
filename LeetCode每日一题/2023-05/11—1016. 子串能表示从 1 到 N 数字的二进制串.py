@@ -1,7 +1,7 @@
 '''
 Author: hakusai
 Date: 2023-05-05 17:10:48
-LastEditTime: 2023-05-11 22:34:23
+LastEditTime: 2023-05-13 15:39:52
 '''
 from collections import Counter, defaultdict, deque
 from functools import lru_cache, reduce, cmp_to_key
@@ -18,8 +18,6 @@ class Solution:
         for i in range(1, n + 1):
             print(bin(i)[2:])
             print(bin(i))
-            if not bin(i)[2:] in s:
+            if bin(i)[2:] not in s:
                 return False
         return True
-
-
