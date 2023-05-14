@@ -99,5 +99,6 @@
         "algorithm": "cpp"
     },
     "background.enabled": true,
-    "background.useDefault": false
+    "background.useDefault": false,
+    "java.debug.settings.onBuildFailureProceed": true
 }
