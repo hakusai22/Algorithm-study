@@ -4,7 +4,7 @@
  * @LastEditTime: 2023-04-18 17:55:39
  * @FilePath: /Algorithm-study/README.md
 -->
-# Algorithm-study
+# Algorithm-Study
 
 <!-- PROJECT SHIELDS -->
 
