@@ -1,3 +1,4 @@
+package 比赛.LeetCode周赛.第81场双;
 
 public class B_6106_并查集 {
 

@@ -1,3 +1,4 @@
+package 比赛.LeetCode周赛.第80场双;
 import java.util.Arrays;
 
 class B_6096 {

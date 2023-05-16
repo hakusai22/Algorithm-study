@@ -1,3 +1,4 @@
+package 比赛.LeetCode周赛.第80场双;
 class A_6095 {
   public boolean strongPasswordCheckerII(String password) {
     boolean a1 = false;

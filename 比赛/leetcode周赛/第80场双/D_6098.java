@@ -1,3 +1,4 @@
+package 比赛.LeetCode周赛.第80场双;
 class D_6098 {
   public long countSubarrays(int[] nums, long k) {
     int n = nums.length;
