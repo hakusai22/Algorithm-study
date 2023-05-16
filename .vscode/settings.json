@@ -100,5 +100,9 @@
     },
     "background.enabled": true,
     "background.useDefault": false,
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.project.sourcePaths": [
+        "Java语法/Java16",
+        "Java语法"
+    ]
 }

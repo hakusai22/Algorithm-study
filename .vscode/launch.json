@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AddressOld",
+            "request": "launch",
+            "mainClass": "AddressOld",
+            "projectName": "Algorithm-study_d0dfc35c"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "Algorithm-study_d0dfc35c"
+        },
+        {
+            "type": "java",
+            "name": "VectorExample",
+            "request": "launch",
+            "mainClass": "VectorExample",
+            "projectName": "Algorithm-study_d0dfc35c"
+        },
+        {
+            "type": "java",
             "name": "helloWorld",
             "request": "launch",
             "mainClass": "Java.helloWorld",
