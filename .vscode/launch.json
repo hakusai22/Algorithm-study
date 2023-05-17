@@ -5,6 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "go",
+            "name": "Launch Go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${fileDirname}",
+            "env": {
+                "GOROOT": "/usr/local/go"
+                },
+                "args": [],
+        },
+        {
             "type": "java",
             "name": "AddressOld",
             "request": "launch",
