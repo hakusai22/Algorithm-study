@@ -1,3 +1,9 @@
+/*
+ * @Author: hakusai
+ * @Date: 2023-05-17 23:20:15
+ * @LastEditTime: 2023-05-18 00:05:14
+ * @Description:
+ */
 package main
 
 import (
@@ -13,6 +19,7 @@ func main() {
 
 func case_1() {
 	times := time.Now()
+	fmt.Println(times)
 	fmt.Printf("当前时间：%v年%v月%v日%v时%v分%v秒\n", times.Year(), times.Month(), times.Day(), times.Hour(), times.Minute(), times.Second())
 	//go中times.Month()获取的月份时英文月份表示，数据类型为time.Month
 	//要将其表示为数字月份需要强制转换为int数据类型

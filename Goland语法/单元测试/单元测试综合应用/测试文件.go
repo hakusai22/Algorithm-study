@@ -1,3 +1,9 @@
+/*
+ * @Author: hakusai
+ * @Date: 2023-05-17 23:20:15
+ * @LastEditTime: 2023-05-17 23:55:49
+ * @Description:
+ */
 package 单元测试综合应用
 
 import (
@@ -6,25 +12,25 @@ import (
 	"io/ioutil"
 )
 
-
 type People struct {
-	Name string `json:"name"`
-	Age int `json:"age"`
+	Name    string `json:"name"`
+	Age     int    `json:"age"`
 	Address string `json:"address"`
 }
+
 func (p *People) mach() error {
 	//序列化p
-	jsonPeople , JsonErr := json.Marshal(p)
+	jsonPeople, JsonErr := json.Marshal(p)
 	if JsonErr != nil {
-		fmt.Printf("jsonPeople序列化失败：%v\n",JsonErr)
+		fmt.Printf("jsonPeople序列化失败：%v\n", JsonErr)
 		return JsonErr
 	}
 	fmt.Println("jsonPeople序列化成功！")
 
 	//写入文件
-	jsonFilePath := "A:/json.txt"
-	if writerErr := ioutil.WriteFile(jsonFilePath,jsonPeople,0) ; writerErr != nil {
-		fmt.Printf("文件写入失败：%v\n",writerErr)
+	jsonFilePath := "./json.txt"
+	if writerErr := ioutil.WriteFile(jsonFilePath, jsonPeople, 0); writerErr != nil {
+		fmt.Printf("文件写入失败：%v\n", writerErr)
 		return writerErr
 	}
 
@@ -32,23 +38,22 @@ func (p *People) mach() error {
 	return nil
 }
 
-
 func (p *People) unMach() error {
 	//读取文件
-	jsonFilePath := "A:/json.txt"
-	contentSlice , readErr := ioutil.ReadFile(jsonFilePath)
+	jsonFilePath := "./json.txt"
+	contentSlice, readErr := ioutil.ReadFile(jsonFilePath)
 	if readErr != nil {
-		fmt.Printf("文件读取发生错误：%v\n",readErr)
+		fmt.Printf("文件读取发生错误：%v\n", readErr)
 		return readErr
 	}
-	fmt.Printf("文件内容：%v\n",string(contentSlice))
+	fmt.Printf("文件内容：%v\n", string(contentSlice))
 
 	//反序列化p
-	err := json.Unmarshal(contentSlice,p)
+	err := json.Unmarshal(contentSlice, p)
 	if err != nil {
-		fmt.Printf("反序列化错误，err:=%v\n",err)
+		fmt.Printf("反序列化错误，err:=%v\n", err)
 		return err
 	}
-	fmt.Printf("反序列化成功：%v\n",*p)
+	fmt.Printf("反序列化成功：%v\n", *p)
 	return nil
 }

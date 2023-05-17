@@ -1,3 +1,9 @@
+/*
+ * @Author: hakusai
+ * @Date: 2023-05-17 23:20:15
+ * @LastEditTime: 2023-05-17 23:53:46
+ * @Description:
+ */
 package main
 
 // 注意：运行该项目之前先设置 GO111MODULE=off 环境，并且将该项目放到GOPATH/src目录下运行！！！
@@ -23,4 +29,4 @@ t.Logf()方法输出相应日志
 PASS测试用例运行成功  FAIL测试用例运行失败
 测试单个文件：go test -v 测试用例文件名.go 函数文件名.go
 测试单个方法：go test -v -test.run 方法名
- */
+*/

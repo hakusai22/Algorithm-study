@@ -1,8 +1,14 @@
+/*
+ * @Author: hakusai
+ * @Date: 2023-05-17 23:02:35
+ * @LastEditTime: 2023-05-17 23:29:51
+ * @Description:
+ */
 package main
 
 import "fmt"
 
-func main(){
+func main() {
 	fmt.Println(case_1())
 }
 

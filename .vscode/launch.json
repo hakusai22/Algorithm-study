@@ -11,7 +11,8 @@
             "mode": "auto",
             "program": "${fileDirname}",
             "env": {
-                "GOROOT": "/usr/local/go"
+                "GOROOT": "/usr/local/go",
+                "GOPATH": "/Users/yinpeng/PythonWorkSpace/Algorithm-study/Goland语法",
                 },
                 "args": [],
         },
