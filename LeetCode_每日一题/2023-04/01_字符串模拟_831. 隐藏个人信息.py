@@ -1,7 +1,7 @@
 '''
 Author: hakusai
 Date: 2023-04-01 13:05:29
-LastEditTime: 2023-04-20 10:26:10
+LastEditTime: 2023-05-17 00:56:43
 '''
 from bisect import bisect_left, bisect_right, insort_left, insort_right, insort, bisect
 from math import ceil, floor, pow, gcd, sqrt, log10, fabs, fmod, factorial, inf, pi, e
@@ -44,6 +44,7 @@ def end(r=-1):
 
 
 class Solution:
+    # asdf
     def maskPII(self, s: str) -> str:
         if s[0].isalpha():
             s = s.lower()
