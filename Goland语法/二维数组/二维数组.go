@@ -1,8 +1,14 @@
+/*
+ * @Author: hakusai
+ * @Date: 2023-05-17 23:15:27
+ * @LastEditTime: 2023-05-19 16:09:14
+ * @Description:
+ */
 package main
 
 import "fmt"
 
-func main(){
+func main() {
 	case_1()
 	case_2()
 	case_3()
@@ -46,6 +52,13 @@ func case_3() {
 		fmt.Println("arrayOne:", indexOne, valueOne)        //indexOne为一维数组下标，valueOne是一个数组，即二维数组
 		for indexTwo, valueTwo := range tdArray[indexOne] { //遍历一维数组的值得到二维数组的下标和值
 			fmt.Println("arrayTwo:", indexTwo, valueTwo) //indexTwo为二维数组的下标，valueTwo是一个整数，也就是二维数组的值
+		}
+	}
+
+	for i, v1 := range tdArray {
+		fmt.Println("i: ", i, " v1: ", v1)
+		for j, v2 := range tdArray[i] {
+			fmt.Println("j: ", j, " v2: ", v2)
 		}
 	}
 }

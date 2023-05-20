@@ -1,3 +1,9 @@
+/*
+ * @Author: hakusai
+ * @Date: 2023-05-17 23:20:15
+ * @LastEditTime: 2023-05-19 15:58:30
+ * @Description:
+ */
 package main
 
 import "fmt"
@@ -18,25 +24,25 @@ const a int  //err 没有初始化
 const b = 4/2  //true
 const c = num/2  //err num不是常量，编译器不能识别
 const d = test()  //err test()不是常量，编译器不能识别
- */
-func main(){
+*/
+func main() {
 
 	//常量简洁写法
-	const(
+	const (
 		a = 2
 		b = 3
-		c    //未初始化的常量默认值为上一个常量的值，即c的值为b的值2
+		c //未初始化的常量默认值为上一个常量的值，即c的值为b的值2
 	)
-	fmt.Printf("a=%v  b=%v  c=%v",a,b,c)
+	fmt.Printf("a=%v  b=%v  c=%v", a, b, c)
 
 	//常量专业写法
-	const(
+	const (
 		d = iota
 		e
 		f
 		g
 		//逻辑：给d赋值为0，e在d的基础上+1，f在e的基础上+1，g在f的基础上+1，以此类推
 	)
-	fmt.Printf("   d=%v  e=%v  f=%v  g=%v",d,e,f,g)
+	fmt.Printf("   d=%v  e=%v  f=%v  g=%v", d, e, f, g)
 
 }

@@ -1,7 +1,4 @@
 {
-    // 使用 IntelliSense 了解相关属性。 
-    // 悬停以查看现有属性的描述。
-    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
@@ -12,37 +9,9 @@
             "program": "${fileDirname}",
             "env": {
                 "GOROOT": "/usr/local/go",
-                "GOPATH": "/Users/yinpeng/PythonWorkSpace/Algorithm-study/Goland语法",
-                },
-                "args": [],
-        },
-        {
-            "type": "java",
-            "name": "AddressOld",
-            "request": "launch",
-            "mainClass": "AddressOld",
-            "projectName": "Algorithm-study_d0dfc35c"
-        },
-        {
-            "type": "java",
-            "name": "Test",
-            "request": "launch",
-            "mainClass": "Test",
-            "projectName": "Algorithm-study_d0dfc35c"
-        },
-        {
-            "type": "java",
-            "name": "VectorExample",
-            "request": "launch",
-            "mainClass": "VectorExample",
-            "projectName": "Algorithm-study_d0dfc35c"
-        },
-        {
-            "type": "java",
-            "name": "helloWorld",
-            "request": "launch",
-            "mainClass": "Java.helloWorld",
-            "projectName": "Algorithm-study_d0dfc35c"
+                "GOPATH": "/Users/yinpeng/PythonWorkSpace/Algorithm-study/Goland语法"
+            },
+            "args": []
         },
         {
             "type": "java",
