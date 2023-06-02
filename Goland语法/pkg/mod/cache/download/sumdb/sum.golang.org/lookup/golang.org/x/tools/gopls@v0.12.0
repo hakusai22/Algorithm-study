@@ -1,3 +1,7 @@
+17699136
+golang.org/x/tools/gopls v0.12.0 h1:O8KGdGuvu3YmAwim3KYmV2l20Cce5VMS74LayO2cDw8=
+golang.org/x/tools/gopls v0.12.0/go.mod h1:MSULFzJlZ1AktZGWK65CTc1IH54LwURt/6XSwQbjfr8=
+
 go.sum database tree
 17699137
 t8Pt1EIqzHQlEjlHD1mLFwatdqBu8QHiRyWmkOniwkk=
